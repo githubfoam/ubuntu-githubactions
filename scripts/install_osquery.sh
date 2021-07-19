@@ -27,7 +27,6 @@ apt-get update -qq
 apt-get install osquery -qqy
 
 
-osqueryctl enable osqueryd
 osqueryctl start osqueryd
 osqueryctl status osqueryd
 
