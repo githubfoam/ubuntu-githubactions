@@ -18,3 +18,10 @@ echo "malware listens on port to provide command and control (C&C) or direct she
 echo "===================================================================================="
 osqueryi --json 'SELECT DISTINCT process.name, listening.port, listening.address, process.pid FROM processes AS process JOIN listening_ports AS listening ON process.pid = listening.pid;' > new_processes_listening_network_ports.json
 cat new_processes_listening_network_ports.json
+
+echo "===================================================================================="
+echo "Finding suspicious outbound network activity; any processes that do not fit within whitelisted network behavior"
+echo "e.g. a process scp’ing traffic externally when it should only perform HTTP(s) connections outbound"
+echo "===================================================================================="
+osqueryi --json 'select s.pid, p.name, local_address, remote_address, family, protocol, local_port, remote_port from process_open_sockets s join processes p on s.pid = p.pid where remote_port not in (80, 443) and family = 2;' > suspicious_outbound_network_activity.json
+cat suspicious_outbound_network_activity.json
