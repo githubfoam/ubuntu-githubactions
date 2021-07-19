@@ -26,7 +26,8 @@ add-apt-repository 'deb [arch=amd64] https://pkg.osquery.io/deb deb main'
 apt-get update -qq
 apt-get install osquery -qqy
 
+
+osqueryctl enable osqueryd
+osqueryctl start osqueryd
 osqueryctl status osqueryd
-# osqueryctl start osqueryd
-# osqueryctl status osqueryd
 
