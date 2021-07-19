@@ -138,7 +138,7 @@ Finding new kernel modules which was loaded; query periodically and diffing agai
 osquery> select name from kernel_modules;
 
 view a list of loaded kernel modules; query periodically and compare its output against older results to see if anything’s changed
-osquery> select name, used_by, status from kernel_modules where status="Live" ;
+osquery> select name, used_by, status from kernel_modules where status="Live";
 
 Finding malware that have been scheduled to run at specific intervals
 osquery> select command, path from crontab ;

@@ -32,3 +32,21 @@ echo "attackers leave a malicious process running but delete the original binary
 echo "===================================================================================="
 osqueryi --json 'SELECT name, path, pid FROM processes WHERE on_disk = 0;' > original_binary_deleted.json
 cat original_binary_deleted.json
+
+echo "===================================================================================="
+echo "Finding new kernel modules which was loaded"
+echo "===================================================================================="
+osqueryi --json 'select name from kernel_modules;' > kernel_modules.json
+cat kernel_modules.json
+
+echo "===================================================================================="
+echo "view a list of loaded kernel modules"
+echo "===================================================================================="
+osqueryi --json 'select name, used_by, status from kernel_modules where status="Live";' > loaded_kernel_modules.json
+cat loaded_kernel_modules.json
+
+echo "===================================================================================="
+echo "Finding malware that have been scheduled to run at specific intervals"
+echo "===================================================================================="
+osqueryi --json 'select command, path from crontab ;' > malware_crontab.json
+cat malware_crontab.json
