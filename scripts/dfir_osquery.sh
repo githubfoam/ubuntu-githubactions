@@ -13,7 +13,7 @@ osqueryi --json 'select cpu_type, cpu_brand, hardware_vendor, hardware_model fro
 cat system_info.json
 
 echo "===================================================================================="
-echo "Finding new processes listening on network ports"
+echo "Finding new processes listening on network ports.Finding backdoors"
 echo "malware listens on port to provide command and control (C&C) or direct shell access,query periodically and diffing with the last known good "
 echo "===================================================================================="
 osqueryi --json 'SELECT DISTINCT process.name, listening.port, listening.address, process.pid FROM processes AS process JOIN listening_ports AS listening ON process.pid = listening.pid;' > new_processes_listening_network_ports.json
@@ -50,3 +50,15 @@ echo "Finding malware that have been scheduled to run at specific intervals"
 echo "===================================================================================="
 osqueryi --json 'select command, path from crontab ;' > malware_crontab.json
 cat malware_crontab.json
+
+echo "===================================================================================="
+echo "Finding backdoored binaries"
+echo "===================================================================================="
+osqueryi --json 'select * from suid_bin ;' > backdoored_binaries.json
+cat backdoored_binaries.json
+
+echo "===================================================================================="
+echo "all recent file activity on the server"
+echo "===================================================================================="
+osqueryi --json 'select target_path, action, uid from file_events;' > recent_file_activity.json
+cat recent_file_activity.json
