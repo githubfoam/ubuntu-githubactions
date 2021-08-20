@@ -123,4 +123,4 @@ jobs:
         ansible-inventory --inventory-file=inventory --list
         ansible-inventory --inventory-file=inventory --graph
         ansible-inventory --inventory-file=inventory --host localhost
-        ansible-playbook playbooks/local.yml --check      
+        ansible-playbook playbooks/localhost_playbook.yml --check      

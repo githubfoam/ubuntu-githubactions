@@ -1,0 +1,23 @@
+---
+# - name: "Update repositories cache and install "foo" package"
+#   apt:
+#     name: snmp
+#     update_cache: yes
+
+- name: "Update repositories cache and SNMP install packages"
+  apt:
+    pkg:
+    - snmp
+    - snmpd    
+    - libsnmp-dev   
+    update_cache: yes
+    tags: snmp-v3
+
+# - name: "Update repositories cache and SNMP install packages"
+#   apt:
+#     pkg:
+#       name: '{{ item }}'
+#       state: latest
+#     with_items: '{{ packages }}' 
+#     update_cache: yes
+#     tags: snmp-v3
