@@ -123,4 +123,17 @@ jobs:
         ansible-inventory --inventory-file=inventory --list
         ansible-inventory --inventory-file=inventory --graph
         ansible-inventory --inventory-file=inventory --host localhost
-        ansible-playbook playbooks/localhost_playbook.yml --check      
+        ansible-playbook playbooks/localhost_playbook.yml --check    
+        ansible-playbook playbooks/localhost_playbook.yml --tags "ruby-gem-install"
+     - name: "run snmp v3 playbook"
+      run: |
+        ansible all -i "localhost," -c local -m shell -a 'hostnamectl status'
+        # cat /etc/ansible/hosts #/etc/ansible/hosts: No such file or directory
+        ansible-playbook playbooks/localhost_playbook.yml --check #dry-run mode
+        ansible -m debug -a 'var=hostvars' localhost        
+        ansible-inventory --inventory-file=inventory --list
+        ansible-inventory --inventory-file=inventory --graph
+        ansible-inventory --inventory-file=inventory --host localhost
+        ansible-playbook playbooks/localhost_playbook.yml --check    
+        ansible-playbook playbooks/localhost_playbook.yml --tags "snmp-v3"
+ 
