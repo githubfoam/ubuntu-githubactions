@@ -30,9 +30,10 @@ apt-cache madison ansible
 
 
 # Create a virtualenv if one does not already exist
-python3 -m virtualenv -p $(which python3) ansible29x
-python3 -m virtualenv ansible29x
-source ansible29x/bin/activate    # Activate the virtual environment
+export ANSIBLE_VERSION="4.4.0"
+python3 -m virtualenv -p $(which python3) ansible-$ANSIBLE_VERSION
+python3 -m virtualenv ansible-$ANSIBLE_VERSION
+source ansible-$ANSIBLE_VERSION/bin/activate    # Activate the virtual environment
 
 # inside the sandbox
 python -V
@@ -41,7 +42,8 @@ pip --version
 
 # pip install -r requirements.txt
 # pip install ansible==2.3.3.0
-pip install ansible=="2.9.6+dfsg-1"
+# pip install ansible=="4.4.0"
+pip install ansible==$ANSIBLE_VERSION
 # ansible --version
 
 echo "===================================================================================="
