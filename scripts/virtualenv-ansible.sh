@@ -7,12 +7,20 @@ set -o xtrace
 # set -euo pipefail
 
 echo "===================================================================================="
-apt-get install -y python-virtualenv
+apt-get update
+apt-get install -y python3-virtualenv
 
-python -m virtualenv ansible-latest  # Create a virtualenv if one does not already exist
+virtualenv --version
+python -V
+python3 -V
+pip --version
+
+# Create a virtualenv if one does not already exist
+python3 -m virtualenv -p $(which python3) ansible-latest 
+# python3 -m virtualenv ansible-latest  
 source ansible/bin/ansible-latest   # Activate the virtual environment
 
-python -m pip install ansible
+pip install ansible
 ansible --version
 
 echo "===================================================================================="
