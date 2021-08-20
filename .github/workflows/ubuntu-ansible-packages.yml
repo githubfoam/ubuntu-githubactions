@@ -65,7 +65,7 @@ jobs:
         ansible-playbook playbooks/localhost_playbook.yml --tags "deploy-snmp-v3"
 
      
-   ubuntu-latest-jenkins-playbook:
+  ubuntu-latest-jenkins-playbook:
     name: "jenkins ansible playbook on ubuntu-latest"
     runs-on: ubuntu-latest
     steps:
