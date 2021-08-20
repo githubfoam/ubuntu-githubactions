@@ -1,4 +1,4 @@
-name: "ubuntu ansible CI workflow"
+name: "ubuntu osquery CI workflow"
 
 
 on:
@@ -17,7 +17,7 @@ jobs:
     - name: "deploy osquery"
       run: sudo make deploy-osquery      
     - name: "DFIR osquery list"
-      run: sudo make defir-osquery   
+      run: sudo make dfir-osquery   
 
   # ubuntu-1804-job:
   #   name: "osquery onubuntu-18.04"
