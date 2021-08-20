@@ -62,7 +62,7 @@ jobs:
       run: hostnamectl status 
     - name: "check on ansible version"
       run: |
-        apt list --installed | grep ansible
+        apt-get list --installed | grep ansible
         # apt-cache search ansible #search repositories for available packages
         # aptitude versions ansible #search repositories for available packages
         # sudo apt-get install -y python-virtualenv
