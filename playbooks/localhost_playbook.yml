@@ -1,16 +1,13 @@
 ---
-# specify localhost in playbook
-- hosts: localhost
-  gather_facts: no
-
+- name: "Configure localhost"
+  hosts: 127.0.0.1
+  connection: local
   tasks:
+    - name: Limit to Archlinux
+      fail:
+        msg: "{{ ansible_distribution }} is not supported."
+      when: ansible_distribution != "Archlinux"
 
-  - name: "run ansible playbook locally"
-    debug:
-    msg: "Debug the bug"
-  
-        # - name: "hostnamectl command"
-        #   shell: "hostnamectl status"
-        #   register: "output"
-
-        # - debug: var=output.stdout_lines
+    - name: "Display current hostname"
+      debug:
+        msg: "The hostname is {{ ansible_hostname }}"
