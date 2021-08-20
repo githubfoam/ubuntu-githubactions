@@ -2,7 +2,9 @@ IMAGE := alpine/fio
 APP:="scripts/archlinux-req.sh"
 
 
-	
+virtualenv-ansible:
+	bash scripts/virtualenv-ansible.sh
+
 deploy-osquery:
 	bash scripts/install_osquery.sh
 
