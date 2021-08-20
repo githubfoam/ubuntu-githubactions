@@ -27,6 +27,7 @@ pip --version
 # pip --version
 
 # pip install -r requirements.txt
+# pip install ansible==2.3.3.0
 # ansible --version
 
 echo "===================================================================================="

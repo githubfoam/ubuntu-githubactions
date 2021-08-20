@@ -62,16 +62,24 @@ jobs:
       run: hostnamectl status 
     - name: "build virtualenv ansible "
       run: sudo make virtualenv-ansible     
-    # - name: "check on ansible version"
-    #   run: |
-    #     dpkg -l | awk  '{print $2}' 
-    #     # dpkg -l | awk  '{print $2}' > package_list.txt | cat package_list.txt
-    #     aptitude search '~i!~M'
-    #     apt-cache search ansible #search repositories for available packages
-    #     aptitude versions ansible #search repositories for available packages
-    #     sudo apt-get install -y python-virtualenv
-    #     python -m virtualenv ansible  # Create a virtualenv if one does not already exist
-    #     source ansible/bin/activate   # Activate the virtual environment
-    #     python -m pip install ansible
-    #     ansible --version
 
+  ubuntu-latest-python-virtualenv-ansible-job:
+    name: "python-virtualenv ansible(specific version) on ubuntu-latest"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status 
+    - name: "build virtualenv ansible version"
+      run: sudo make virtualenv-ansible-specific     
+
+
+  ubuntu-latest-snmpv3-job:
+    name: "snmpv3 on ubuntu-latest"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status 
+    - name: "deploy-snmpv3"
+      run: deploy-snmpv3
