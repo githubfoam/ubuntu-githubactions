@@ -1,0 +1,8 @@
+---
+# specify localhost in local_action
+    - name: "Run playbook locally"
+        local_action:
+        shell: "hostnamectl status"
+        register: "output"
+
+      - debug: var=output.stdout_lines

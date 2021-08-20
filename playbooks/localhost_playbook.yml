@@ -1,0 +1,14 @@
+---
+# specify localhost in playbook
+  - hosts: localhost
+ 
+    tasks:
+
+    - name: "run ansible playbook locally"
+      debug:
+      msg: "Debug the bug"
+    # - name: "hostnamectl command"
+    #   shell: "hostnamectl status"
+    #   register: "output"
+
+    # - debug: var=output.stdout_lines

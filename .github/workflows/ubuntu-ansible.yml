@@ -76,12 +76,13 @@ jobs:
     - name: "ansible locally"
       run: |
         # cat /etc/ansible/hosts #/etc/ansible/hosts: No such file or directory
-        ansible-playbook playbooks/local.yml --check #dry-run mode
+        cat playbooks/localhost_playbook.yml 
+        ansible-playbook playbooks/localhost_playbook.yml --check #dry-run mode
         ansible -m debug -a 'var=hostvars' localhost        
         ansible-inventory --inventory-file=inventory --list
         ansible-inventory --inventory-file=inventory --graph
         ansible-inventory --inventory-file=inventory --host localhost
-        ansible-playbook playbooks/local.yml --check
+
 
   ubuntu-latest-python-virtualenv-ansible-version-job:
     name: "python-virtualenv ansible(specific version) on ubuntu-latest"
@@ -103,3 +104,23 @@ jobs:
       run: hostnamectl status 
     - name: "deploy snmp v3"
       run: sudo make deploy-snmpv3
+
+  ubuntu-latest-snmpv3-playbook:
+    name: "snmpv3 ansible playbook on ubuntu-latest"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status 
+    - name: "build virtualenv ansible "
+      run: sudo make virtualenv-ansible     
+    - name: "ansible locally"
+      run: |
+        ansible all -i "localhost," -c local -m shell -a 'hostnamectl status'
+        # cat /etc/ansible/hosts #/etc/ansible/hosts: No such file or directory
+        ansible-playbook playbooks/localhost_playbook.yml --check #dry-run mode
+        ansible -m debug -a 'var=hostvars' localhost        
+        ansible-inventory --inventory-file=inventory --list
+        ansible-inventory --inventory-file=inventory --graph
+        ansible-inventory --inventory-file=inventory --host localhost
+        ansible-playbook playbooks/local.yml --check      
