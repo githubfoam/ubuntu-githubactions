@@ -1,0 +1,9 @@
+---
+ntp_timezone: Europe/Athens
+
+firewall_allowed_tcp_ports:
+  - "22"
+  - "25"
+  - "80"
+  - "443"
+  - "8080"

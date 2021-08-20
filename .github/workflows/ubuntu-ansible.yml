@@ -136,4 +136,8 @@ jobs:
         ansible-inventory --inventory-file=inventory --host localhost
         ansible-playbook playbooks/localhost_playbook.yml --check    
         ansible-playbook playbooks/localhost_playbook.yml --tags "snmp-v3"
+    - name: "run jenkins playbook"
+      run: |
+        ansible-playbook playbooks/localhost_playbook_jenkins.yml --check    
+     
  
