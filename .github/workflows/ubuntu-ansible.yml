@@ -53,7 +53,7 @@ jobs:
     - name: "check on ansible version"
       run: ansible --version
 
-  ubuntu-latest-python-virtualenv-job:
+  ubuntu-latest-python-virtualenv-ansible-job:
     name: "python-virtualenv ansible on ubuntu-latest"
     runs-on: ubuntu-latest
     steps:
@@ -64,12 +64,33 @@ jobs:
       run: sudo make virtualenv-ansible     
     - name: "ansible locally"
       run: |
+        cat /etc/ansible/hosts
         ansible -m debug -a 'var=hostvars' localhost        
         ansible-inventory --inventory-file=inventory --list
         ansible-inventory --inventory-file=inventory --graph
         ansible-inventory --inventory-file=inventory --host localhost
-        
-  ubuntu-latest-python-virtualenv-ansible-job:
+        ansible-playbook playbooks/local.yml --check
+
+  ubuntu-latest-python-virtualenv-ansible-playbook:
+    name: "python-virtualenv ansible on ubuntu-latest"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status 
+    - name: "build virtualenv ansible "
+      run: sudo make virtualenv-ansible     
+    - name: "ansible locally"
+      run: |
+        cat /etc/ansible/hosts
+        ansible-playbook playbooks/local.yml --check
+        ansible -m debug -a 'var=hostvars' localhost        
+        ansible-inventory --inventory-file=inventory --list
+        ansible-inventory --inventory-file=inventory --graph
+        ansible-inventory --inventory-file=inventory --host localhost
+        ansible-playbook playbooks/local.yml --check
+
+  ubuntu-latest-python-virtualenv-ansible-version-job:
     name: "python-virtualenv ansible(specific version) on ubuntu-latest"
     runs-on: ubuntu-latest
     steps:

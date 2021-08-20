@@ -1,0 +1,11 @@
+---
+  - name: "Run playbook locally"
+    hosts: localhost
+    connection: local 
+    tasks:
+
+    - name: "hostnamectl command"
+      shell: "hostnamectl status"
+      register: "output"
+
+    - debug: var=output.stdout_lines
