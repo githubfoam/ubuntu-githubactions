@@ -63,9 +63,11 @@ jobs:
     - name: "check on ansible version"
       run: |
         apt list --installed | grep ansible
-        sudo apt-get install -y python-virtualenv
-        python -m virtualenv ansible  # Create a virtualenv if one does not already exist
-        source ansible/bin/activate   # Activate the virtual environment
-        python -m pip install ansible
-        ansible --version
+        # apt-cache search ansible #search repositories for available packages
+        # aptitude versions ansible #search repositories for available packages
+        # sudo apt-get install -y python-virtualenv
+        # python -m virtualenv ansible  # Create a virtualenv if one does not already exist
+        # source ansible/bin/activate   # Activate the virtual environment
+        # python -m pip install ansible
+        # ansible --version
 
