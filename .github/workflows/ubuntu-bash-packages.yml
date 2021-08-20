@@ -1,0 +1,57 @@
+name: "ubuntu bash packages CI workflow"
+
+
+on:
+  push:
+    branches: [ test ]
+
+jobs:
+
+  # ubuntu-1604-job:
+  #   name: "osquery on ubuntu-16.04"
+  #   runs-on: ubuntu-16.04
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: "os fingerprinting"
+  #     run: hostnamectl status  
+  #   - name: "install osquery"
+  #     run: sudo sh scripts/install_osquery.sh      
+  #   - name: "DFIR osquery list"
+  #     run: sh scripts/dfir_osquery.sh   
+
+  # ubuntu-1804-job:
+  #   name: "osquery onubuntu-18.04"
+  #   runs-on: ubuntu-18.04
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: "os fingerprinting"
+  #     run: hostnamectl status  
+  #   - name: "install osquery"
+  #     run: sudo sh scripts/install_osquery.sh      
+  #   - name: "DFIR osquery list"
+  #     run: sh scripts/dfir_osquery.sh   
+
+  # ubuntu-2004-job:
+  #   name: "osquery on ubuntu-20.04"
+  #   runs-on: ubuntu-20.04
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: "os fingerprinting"
+  #     run: hostnamectl status 
+  #   - name: "install osquery"
+  #     run: sudo sh scripts/install_osquery.sh      
+  #   - name: "DFIR osquery list"
+  #     run: sh scripts/dfir_osquery.sh        
+
+  ubuntu-latest-snmpv3-job:
+    name: "snmpv3 on ubuntu-latest"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status 
+    - name: "deploy snmp v3"
+      run: sudo make deploy-snmpv3
+ 
+     
+ 

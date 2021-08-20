@@ -1,0 +1,5 @@
+---
+packages:
+  - snmp
+  - snmpd
+  - apache2  

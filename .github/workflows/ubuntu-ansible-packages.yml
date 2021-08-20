@@ -1,4 +1,4 @@
-name: "ubuntu ansible CI workflow"
+name: "ubuntu ansible packages CI workflow"
 
 
 on:
@@ -43,18 +43,8 @@ jobs:
   #   - name: "DFIR osquery list"
   #     run: sh scripts/dfir_osquery.sh        
 
-  ubuntu-latest-job:
-    name: "ansible on ubuntu-latest"
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: "os fingerprinting"
-      run: hostnamectl status 
-    - name: "check on ansible version"
-      run: ansible --version
-
-  ubuntu-latest-python-virtualenv-ansible-job:
-    name: "python-virtualenv ansible on ubuntu-latest"
+  ubuntu-latest-snmpv3-playbook:
+    name: "snmpv3 ansible playbook on ubuntu-latest"
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -62,39 +52,29 @@ jobs:
       run: hostnamectl status 
     - name: "build virtualenv ansible "
       run: sudo make virtualenv-ansible     
-
-
-  ubuntu-latest-python-virtualenv-ansible-playbook:
-    name: "python-virtualenv ansible playbook on ubuntu-latest"
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: "os fingerprinting"
-      run: hostnamectl status 
-    - name: "build virtualenv ansible "
-      run: sudo make virtualenv-ansible     
-    - name: "ansible locally"
+    - name: "run snmp v3 playbook"
       run: |
+        ansible all -i "localhost," -c local -m shell -a 'hostnamectl status'
         # cat /etc/ansible/hosts #/etc/ansible/hosts: No such file or directory
-        cat playbooks/localhost_playbook.yml 
         ansible-playbook playbooks/localhost_playbook.yml --check #dry-run mode
         ansible -m debug -a 'var=hostvars' localhost        
         ansible-inventory --inventory-file=inventory --list
         ansible-inventory --inventory-file=inventory --graph
         ansible-inventory --inventory-file=inventory --host localhost
+        ansible-playbook playbooks/localhost_playbook.yml --check    
+        ansible-playbook playbooks/localhost_playbook.yml --tags "deploy-snmp-v3"
 
-
-  ubuntu-latest-python-virtualenv-ansible-version-job:
-    name: "python-virtualenv ansible(specific version) on ubuntu-latest"
+     
+   ubuntu-latest-jenkins-playbook:
+    name: "jenkins ansible playbook on ubuntu-latest"
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"
       run: hostnamectl status 
-    - name: "build virtualenv ansible version"
-      run: sudo make virtualenv-ansible-specific     
-
-
-   
-     
- 
+    - name: "build virtualenv ansible "
+      run: sudo make virtualenv-ansible     
+    - name: "run jenkins playbook"
+      run: |
+        ansible-galaxy install -r playbooks/requirements.yml
+        ansible-playbook playbooks/localhost_playbook_jenkins.yml --check   

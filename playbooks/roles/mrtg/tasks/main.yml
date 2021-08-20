@@ -4,7 +4,7 @@
 #     name: snmp
 #     update_cache: yes
 
-# - name: "Update repositories cache and SNMP install packages"
+# - name: "Update repositories cache and  install SNMP packages"
 #   apt:
 #     pkg:
 #     - snmp
@@ -13,11 +13,11 @@
 #     update_cache: yes
 #     tags: deploy-snmp-v3
 
-- name: "Update repositories cache and SNMP install packages"
+- name: "Update repositories cache and install MRTG packages"
   apt:
     pkg:
       name: '{{ item }}'
       state: latest
     with_items: '{{ packages }}' 
     update_cache: yes
-    tags: deploy-snmp-v3
+    tags: deploy-mrtg
