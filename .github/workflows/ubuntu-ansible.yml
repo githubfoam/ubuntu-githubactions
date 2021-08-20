@@ -62,17 +62,10 @@ jobs:
       run: hostnamectl status 
     - name: "build virtualenv ansible "
       run: sudo make virtualenv-ansible     
-    - name: "ansible locally"
-      run: |
-        cat /etc/ansible/hosts
-        ansible -m debug -a 'var=hostvars' localhost        
-        ansible-inventory --inventory-file=inventory --list
-        ansible-inventory --inventory-file=inventory --graph
-        ansible-inventory --inventory-file=inventory --host localhost
-        ansible-playbook playbooks/local.yml --check
+
 
   ubuntu-latest-python-virtualenv-ansible-playbook:
-    name: "python-virtualenv ansible on ubuntu-latest"
+    name: "python-virtualenv ansible playbook on ubuntu-latest"
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -82,8 +75,8 @@ jobs:
       run: sudo make virtualenv-ansible     
     - name: "ansible locally"
       run: |
-        cat /etc/ansible/hosts
-        ansible-playbook playbooks/local.yml --check
+        # cat /etc/ansible/hosts #/etc/ansible/hosts: No such file or directory
+        ansible-playbook playbooks/local.yml --check #dry-run mode
         ansible -m debug -a 'var=hostvars' localhost        
         ansible-inventory --inventory-file=inventory --list
         ansible-inventory --inventory-file=inventory --graph
