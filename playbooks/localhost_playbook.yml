@@ -1,16 +1,16 @@
 ---
 # specify localhost in playbook
 - hosts: localhost
-gather_facts: no
- 
-tasks:
+  gather_facts: no
 
-- name: "run ansible playbook locally"
-debug:
-msg: "Debug the bug"
+  tasks:
 
-    # - name: "hostnamectl command"
-    #   shell: "hostnamectl status"
-    #   register: "output"
+  - name: "run ansible playbook locally"
+    debug:
+    msg: "Debug the bug"
+  
+        # - name: "hostnamectl command"
+        #   shell: "hostnamectl status"
+        #   register: "output"
 
-    # - debug: var=output.stdout_lines
+        # - debug: var=output.stdout_lines
