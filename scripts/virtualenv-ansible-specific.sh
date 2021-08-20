@@ -41,9 +41,8 @@ python3 -V
 pip --version
 
 # pip install -r requirements.txt
-# pip install ansible==2.3.3.0
 # pip install ansible=="4.4.0"
 pip install ansible==$ANSIBLE_VERSION
-# ansible --version
+ansible --version
 
 echo "===================================================================================="
