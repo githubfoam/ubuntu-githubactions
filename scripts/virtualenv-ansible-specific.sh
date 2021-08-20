@@ -17,16 +17,16 @@ python3 -V
 pip --version
 
 # Create a virtualenv if one does not already exist
-python3 -m virtualenv -p $(which python3) ansible-latest 
+# python3 -m virtualenv -p $(which python3) ansible-latest 
 # python3 -m virtualenv ansible-latest  
-source ansible-latest/bin/activate    # Activate the virtual environment
+# source ansible-latest/bin/activate    # Activate the virtual environment
 
 # inside the sandbox
-python -V
-python3 -V
-pip --version
+# python -V
+# python3 -V
+# pip --version
 
-pip install -r requirements.txt
-ansible --version
+# pip install -r requirements.txt
+# ansible --version
 
 echo "===================================================================================="
