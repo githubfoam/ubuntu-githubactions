@@ -16,6 +16,9 @@ python -V
 python3 -V
 pip --version
 
+# check the version of the available package in the Ubuntu repositories without installing
+apt-cache policy ansible
+
 # Create a virtualenv if one does not already exist
 # python3 -m virtualenv -p $(which python3) ansible-latest 
 # python3 -m virtualenv ansible-latest  
