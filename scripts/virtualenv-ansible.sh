@@ -18,9 +18,10 @@ pip --version
 # Create a virtualenv if one does not already exist
 python3 -m virtualenv -p $(which python3) ansible-latest 
 # python3 -m virtualenv ansible-latest  
-source ansible-latest /bin/activate    # Activate the virtual environment
+source ansible-latest/bin/activate    # Activate the virtual environment
 
-pip install ansible
+pip install -r requirements.txt
+# pip install ansible
 ansible --version
 
 echo "===================================================================================="
