@@ -18,6 +18,9 @@ pip --version
 
 # check the version of the available package in the Ubuntu repositories without installing
 apt-cache policy ansible
+apt-cache show ansible
+apt-cache showpkg ansible
+apt-cache madison ansible
 
 # Create a virtualenv if one does not already exist
 # python3 -m virtualenv -p $(which python3) ansible-latest 
