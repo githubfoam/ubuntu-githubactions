@@ -62,7 +62,13 @@ jobs:
       run: hostnamectl status 
     - name: "build virtualenv ansible "
       run: sudo make virtualenv-ansible     
-
+    - name: "ansible locally"
+      run: |
+        ansible -m debug -a 'var=hostvars' localhost        
+        ansible-inventory --inventory-file=inventory --list
+        ansible-inventory --inventory-file=inventory --graph
+        ansible-inventory --inventory-file=inventory --host localhost
+        
   ubuntu-latest-python-virtualenv-ansible-job:
     name: "python-virtualenv ansible(specific version) on ubuntu-latest"
     runs-on: ubuntu-latest
