@@ -10,7 +10,7 @@ echo "==========================================================================
 # https://help.ubuntu.com/community/MRTG
 sudo apt-get update
 # install Apache
-apt-get install -y apache2
+sudo apt-get install -y apache2
 
 # Install snmp packages
 apt-get install -y snmpd

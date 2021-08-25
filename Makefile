@@ -1,6 +1,9 @@
 IMAGE := alpine/fio
 APP:="scripts/archlinux-req.sh"
 
+deploy-ncpa:
+	bash scripts/deploy-ncpa.sh
+
 deploy-mrtg:
 	bash scripts/deploy-mrtg.sh
 

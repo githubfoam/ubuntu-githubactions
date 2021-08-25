@@ -49,14 +49,37 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"
-      run: hostnamectl status 
-    - name: "deploy mrtg"
-      run: make deploy-mrtg       
-    - name: "deploy nipap"
-      run: make deploy-nipap      
+      run: hostnamectl status    
     - name: "deploy snmp v3"
       run: make deploy-snmpv3
 
- 
+  ubuntu-latest-mrtg-job:
+    name: "mrtg on ubuntu-latest"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status 
+    - name: "deploy mrtg"
+      run: make deploy-mrtg       
      
+
+  ubuntu-latest-nipap-job:
+    name: "nipap on ubuntu-latest"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status       
+    - name: "deploy nipap"
+      run: make deploy-nipap      
  
+  ubuntu-latest-ncpa-job:
+    name: "ncpa on ubuntu-latest"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status       
+    - name: "deploy ncpa"
+      run: make deploy-ncpa     
