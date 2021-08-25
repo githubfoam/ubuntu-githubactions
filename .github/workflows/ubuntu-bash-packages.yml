@@ -50,8 +50,11 @@ jobs:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"
       run: hostnamectl status 
+    - name: "deploy nipap"
+      run: make deploy-nipap      
     - name: "deploy snmp v3"
-      run: sudo make deploy-snmpv3
+      run: make deploy-snmpv3
+
  
      
  
