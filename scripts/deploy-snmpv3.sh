@@ -19,7 +19,12 @@ service snmpd stop
 #     Change privUser to your private users username
 sudo net-snmp-config --create-snmpv3-user -ro -A AuthPassword -X CryptoPassword -a MD5 -x AES privUser
 
-
 cat /etc/snmp/snmpd.conf
+
+service snmpd start
+
+# test
+snmpwalk -v3 -a MD5 -A AuthPassword -X CryptoPassword -l authNoPriv -u privUser localhost7
+
 
 echo "===================================================================================="

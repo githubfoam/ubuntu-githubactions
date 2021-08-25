@@ -8,7 +8,7 @@ set -o xtrace
 
 echo "===================================================================================="
 # https://help.ubuntu.com/community/MRTG
-apt-get update
+sudo apt-get update
 # install Apache
 apt-get install -y apache2
 
