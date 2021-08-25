@@ -1,6 +1,12 @@
 IMAGE := alpine/fio
 APP:="scripts/archlinux-req.sh"
 
+deploy-mrtg:
+	bash scripts/deploy-mrtg.sh
+
+deploy-nipap:
+	bash scripts/deploy-nipap.sh
+
 deploy-snmpv3:
 	bash scripts/deploy-snmpv3.sh
 

@@ -50,6 +50,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"
       run: hostnamectl status 
+    - name: "deploy mrtg"
+      run: make deploy-mrtg       
     - name: "deploy nipap"
       run: make deploy-nipap      
     - name: "deploy snmp v3"
