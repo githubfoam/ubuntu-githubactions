@@ -11,8 +11,9 @@ sudo apt-get update
 sudo apt-get install -y tshark
 
 git clone https://github.com/SecurityNik/SUWtHEh-.git
-pwd 
-ls -lai
-cd SUWtHEh
-capinfos securitynik_kaieteur_falls.pcap
+cd "SUWtHEh-"
+
+capinfos securitynik_kaieteur_falls.pcap  #generate a long form report
+capinfos -T securitynik_kaieteur_falls.pcap #generate a TAB delimited table form report
+
 echo "===================================================================================="
