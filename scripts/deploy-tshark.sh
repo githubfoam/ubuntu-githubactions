@@ -7,7 +7,12 @@ set -o xtrace
 # set -euo pipefail
 
 echo "===================================================================================="
-apt-get update 
-apt-get install -y tshark
+sudo apt-get update 
+sudo apt-get install -y tshark
 
+git clone https://github.com/SecurityNik/SUWtHEh-.git
+pwd 
+ls -lai
+cd SUWtHEh
+capinfos securitynik_kaieteur_falls.pcap
 echo "===================================================================================="
