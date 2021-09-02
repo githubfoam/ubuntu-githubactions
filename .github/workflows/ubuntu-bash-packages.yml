@@ -43,6 +43,16 @@ jobs:
   #   - name: "DFIR osquery list"
   #     run: sh scripts/dfir_osquery.sh        
 
+  ubuntu-latest-tshark-job:
+    name: "tshark on ubuntu-latest"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status    
+    - name: "deploy tshark"
+      run: make deploy-tshark
+
   ubuntu-latest-snmpv3-job:
     name: "snmpv3 on ubuntu-latest"
     runs-on: ubuntu-latest

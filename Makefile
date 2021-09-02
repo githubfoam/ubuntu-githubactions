@@ -1,6 +1,9 @@
 IMAGE := alpine/fio
 APP:="scripts/archlinux-req.sh"
 
+deploy-tshark:
+	bash scripts/deploy-tshark.sh
+
 deploy-ncpa:
 	bash scripts/deploy-ncpa.sh
 
