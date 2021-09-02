@@ -20,6 +20,8 @@ capinfos -T securitynik_kaieteur_falls.pcap #generate a TAB delimited table form
 capinfos -TmQ securitynik_kaieteur_falls.pcap >securitynik_kaieteur_falls.csv #generate a CSV style table form report
 stat  securitynik_kaieteur_falls.csv
 
-editcap -h 
+editcap -F pcapng  -c 20  securitynik_kaieteur_falls.cap  securitynik_kaieteur_falls_split.cap
+
+tshark --export-objects --help
 
 echo "===================================================================================="
