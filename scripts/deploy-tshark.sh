@@ -23,6 +23,6 @@ stat  securitynik_kaieteur_falls.csv
 editcap -F pcapng  -c 20  securitynik_kaieteur_falls.pcap  securitynik_kaieteur_falls_split.cap
 
 # tshark --export-objects --help
-tshark -n -r securitynik_kaieteur_falls.cap -q -z io,phs
+tshark -n -r securitynik_kaieteur_falls.pcap -q -z io,phs
 
 echo "===================================================================================="
