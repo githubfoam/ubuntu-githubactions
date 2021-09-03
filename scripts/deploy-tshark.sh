@@ -33,6 +33,8 @@ echo "============================tshart analysis===============================
 # Exporting suspicious/malicious content
 tshark -n -r securitynik_kaieteur_falls.pcap -q -z io,phs
 
+echo "============================tshart analysis http========================================================"
+
 # Export suspicious content  from HTTP
 tshark -n -r securitynik_kaieteur_falls.pcap -T fields -e http.request.method -e http.host -e http.request.uri | sort | uniq
 
@@ -43,6 +45,7 @@ tshark -n -r securitynik_kaieteur_falls.pcap -T fields -e http.request.method -e
 # file kaieteur_falls.jpeg
 # stat kaieteur_falls.jpeg
 # clamscan kaieteur_falls.jpeg
+echo "============================tshart analysis smb========================================================"
 
 # Export suspicious content  from SMB
 tshark -n -r smb-export.pcap -q -T fields -e smb2.filename | sort | uniq
@@ -52,6 +55,18 @@ tshark -n -r smb-export.pcap -Y 'smb2.filename contains pdf'
 tshark -n -r smb-export.pcap -Y 'frame.number == 189'
 
 tshark -n -r smb-export.pcap -Y 'frame.number == 189' -T fields -e smb2.tree 
+
+tshark -n -r smb-export.pcap -Y 'frame.number == 189' -T fields -e smb2.tree -e smb2.filename -e smb2.acct -e smb2.domain -e smb2.host
+
+tshark -n -r smb-export.pcap -Y 'frame.number == 189' -T fields \ 
+    -e smb2.tree \
+    -e smb2.filename \
+    -e smb2.acct \
+    -e smb2.domain \
+    -e smb2.host
+
+tshark -n -r smb-export.pcap -Y 'frame.number == 189' -Y 
+# tshark -n -r smb-export.pcap -Y 'frame.number == 189' -Y | more
 
 echo "===================================================================================="
 echo "===================================================================================="
