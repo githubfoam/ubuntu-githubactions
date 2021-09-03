@@ -47,6 +47,11 @@ tshark -n -r securitynik_kaieteur_falls.pcap -T fields -e http.request.method -e
 # Export suspicious content  from SMB
 tshark -n -r smb-export.pcap -q -T fields -e smb2.filename | sort | uniq
 
+tshark -n -r smb-export.pcap -Y 'smb2.filename contains pdf'
+
+tshark -n -r smb-export.pcap -Y 'frame.number == 189'
+
+tshark -n -r smb-export.pcap -Y 'frame.number == 189' -T fields -e smb2.tree 
 
 echo "===================================================================================="
 echo "===================================================================================="
