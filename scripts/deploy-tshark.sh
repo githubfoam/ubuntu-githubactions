@@ -23,7 +23,8 @@ stat  securitynik_kaieteur_falls.csv
 
 editcap -F pcapng  -c 20  securitynik_kaieteur_falls.pcap  securitynik_kaieteur_falls_split.pcap
 
-capinfos securitynik_kaieteur_falls_split.pcap #generate a long form report
+ls -lai
+# capinfos securitynik_kaieteur_falls_split.pcap #generate a long form report
 
 echo "===================================================================================="
 echo "============================tshart analysis========================================================"
