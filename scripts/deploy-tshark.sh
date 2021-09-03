@@ -36,10 +36,8 @@ tshark -n -r securitynik_kaieteur_falls.pcap -q -z io,phs
 # Export suspicious content  from HTTP
 tshark -n -r securitynik_kaieteur_falls.pcap -T fields -e http.request.method -e http.host -e http.request.uri | sort | uniq
 
-pwd 
-ls -lai 
-tshark --export-objects http,/tmp/ -q
-ls -lai
+sudo tshark --export-objects http,/tmp/ -q
+
 # tshark -n -r securitynik_kaieteur0_falls.pcap --export-objects http,/tmp/
 # ls -lai
 # file kaieteur_falls.jpeg
