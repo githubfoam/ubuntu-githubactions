@@ -16,10 +16,10 @@ echo "==========================================================================
 echo "============================pcap fingerpointing========================================================"
 capinfos securitynik_kaieteur_falls.pcap  #generate a long form report
 
-capinfos -T securitynik_kaieteur_falls.pcap #generate a TAB delimited table form report
+# capinfos -T securitynik_kaieteur_falls.pcap #generate a TAB delimited table form report
 
-capinfos -TmQ securitynik_kaieteur_falls.pcap >securitynik_kaieteur_falls.csv #generate a CSV style table form report
-stat  securitynik_kaieteur_falls.csv
+# capinfos -TmQ securitynik_kaieteur_falls.pcap >securitynik_kaieteur_falls.csv #generate a CSV style table form report
+# stat  securitynik_kaieteur_falls.csv
 
 editcap -F pcapng  -c 20  securitynik_kaieteur_falls.pcap  securitynik_kaieteur_falls_split.pcap
 
