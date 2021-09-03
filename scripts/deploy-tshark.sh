@@ -58,15 +58,22 @@ tshark -n -r smb-export.pcap -Y 'frame.number == 189' -T fields -e smb2.tree
 
 tshark -n -r smb-export.pcap -Y 'frame.number == 189' -T fields -e smb2.tree -e smb2.filename -e smb2.acct -e smb2.domain -e smb2.host
 
-tshark -n -r smb-export.pcap -Y 'frame.number == 189' -T fields \ 
-    -e smb2.tree \
-    -e smb2.filename \
-    -e smb2.acct \
-    -e smb2.domain \
-    -e smb2.host
+# tshark -n -r smb-export.pcap -Y 'frame.number == 189' -T fields \ 
+# -e smb2.tree \
+# -e smb2.filename \
+# -e smb2.acct \
+# -e smb2.domain \
+# -e smb2.host
 
 tshark -n -r smb-export.pcap -Y 'frame.number == 189' -Y 
 # tshark -n -r smb-export.pcap -Y 'frame.number == 189' -Y | more
+
+tshark -n -r decode-as-ssh.pcap
+
+sudo apt-get install -yq p7zip-full
+7z e decode-as.7z
+ls -lai 
+tshark -n -r decode-as.pcap
 
 echo "===================================================================================="
 echo "===================================================================================="
