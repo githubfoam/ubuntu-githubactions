@@ -36,13 +36,17 @@ tshark -n -r securitynik_kaieteur_falls.pcap -q -z io,phs
 # Export suspicious content  from HTTP
 tshark -n -r securitynik_kaieteur_falls.pcap -T fields -e http.request.method -e http.host -e http.request.uri | sort | uniq
 
-timeout 10s sudo tshark --export-objects http,/tmp/ -q
 
+# timeout 10s sudo tshark --export-objects http,/tmp/ -q
 # tshark -n -r securitynik_kaieteur0_falls.pcap --export-objects http,/tmp/
 # ls -lai
 # file kaieteur_falls.jpeg
 # stat kaieteur_falls.jpeg
 # clamscan kaieteur_falls.jpeg
+
+# Export suspicious content  from SMB
+tshark -n -r smb-export.pcap -q -T fields -e smb2.filename | sort | uniq
+
 
 echo "===================================================================================="
 echo "===================================================================================="
