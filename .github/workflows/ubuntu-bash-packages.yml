@@ -63,6 +63,16 @@ jobs:
     - name: "deploy kafl"
       run: sudo make deploy-kafl
 
+  ubuntu-latest-kfx-job:
+    name: "kfx on ubuntu-latest"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status    
+    - name: "deploy kfx"
+      run: sudo make deploy-kfx
+
   # ubuntu-latest-tshark-job:
   #   name: "tshark on ubuntu-latest"
   #   runs-on: ubuntu-latest

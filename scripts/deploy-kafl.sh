@@ -17,9 +17,10 @@ git clone https://github.com/IntelLabs/kAFL.git ~/kafl
 
 
 cd ~/kafl
-./install.sh deps     # check platform and install dependencies
-sh -c 'install.sh perms'    # allow current user to control KVM (/dev/kvm)
-# $ ./install.sh qemu     # download, patch and build Qemu
-# $ ./install.sh linux    # download, patch and build Linux
+#According to /proc/cpuinfo this system has no intel_pt
+# ./install.sh deps     # check platform and install dependencies
+# ./install.sh perms    # allow current user to control KVM (/dev/kvm)
+# ./install.sh qemu     # download, patch and build Qemu
+# ./install.sh linux    # download, patch and build Linux
 
 echo "===================================================================================="
