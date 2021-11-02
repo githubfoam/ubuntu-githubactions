@@ -39,10 +39,18 @@ git submodule update --init
 # Compile & Install Xen 
 
 # Make sure the pci include folder exists at /usr/include/pci
-stat /usr/include/pci
+# stat /usr/include/pci #stat: cannot stat '/usr/include/pci': No such file or directory
 # In case it doesn't, create a symbolic link to where it's installed at
-# sudo ln -s /usr/include/x86_64-linux-gnu/pci /usr/include/pci
+ln -s /usr/include/x86_64-linux-gnu/pci /usr/include/pci
 
+# Before installing Xen from source make sure you don't have any pre-existing Xen packages installed
+apt-get remove xen-* libxen* -y 
+
+# compile & install Xen
+cd xen
+echo CONFIG_EXPERT=y > xen/.config
+echo CONFIG_MEM_SHARING=y >> xen/.config
+./configure --disable-pvshim --enable-githttp --enable-ovmf
 
 
 echo "===================================================================================="
