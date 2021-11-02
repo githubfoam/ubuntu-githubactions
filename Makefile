@@ -1,6 +1,9 @@
 IMAGE := alpine/fio
 APP:="scripts/archlinux-req.sh"
 
+deploy-kafl:
+	bash scripts/deploy-kafl.sh
+
 deploy-radamsa:
 	bash scripts/deploy-radamsa.sh
 
