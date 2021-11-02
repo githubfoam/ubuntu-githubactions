@@ -65,7 +65,6 @@ tshark -n -r smb-export.pcap -Y 'frame.number == 189' -T fields -e smb2.tree -e 
 # -e smb2.domain \
 # -e smb2.host
 
-tshark -n -r smb-export.pcap -Y 'frame.number == 189' -Y 
 # tshark -n -r smb-export.pcap -Y 'frame.number == 189' -Y | more
 
 tshark -n -r decode-as-ssh.pcap

@@ -43,53 +43,63 @@ jobs:
   #   - name: "DFIR osquery list"
   #     run: sh scripts/dfir_osquery.sh        
 
-  ubuntu-latest-tshark-job:
-    name: "tshark on ubuntu-latest"
+  ubuntu-latest-radamsa-job:
+    name: "radamsa on ubuntu-latest"
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"
       run: hostnamectl status    
-    - name: "deploy tshark"
-      run: make deploy-tshark
+    - name: "deploy radamsa"
+      run: make deploy-radamsa
 
-  ubuntu-latest-snmpv3-job:
-    name: "snmpv3 on ubuntu-latest"
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: "os fingerprinting"
-      run: hostnamectl status    
-    - name: "deploy snmp v3"
-      run: make deploy-snmpv3
+  # ubuntu-latest-tshark-job:
+  #   name: "tshark on ubuntu-latest"
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: "os fingerprinting"
+  #     run: hostnamectl status    
+  #   - name: "deploy tshark"
+  #     run: make deploy-tshark
 
-  ubuntu-latest-mrtg-job:
-    name: "mrtg on ubuntu-latest"
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: "os fingerprinting"
-      run: hostnamectl status 
-    - name: "deploy mrtg"
-      run: make deploy-mrtg       
+  # ubuntu-latest-snmpv3-job:
+  #   name: "snmpv3 on ubuntu-latest"
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: "os fingerprinting"
+  #     run: hostnamectl status    
+  #   - name: "deploy snmp v3"
+  #     run: make deploy-snmpv3
+
+  # ubuntu-latest-mrtg-job:
+  #   name: "mrtg on ubuntu-latest"
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: "os fingerprinting"
+  #     run: hostnamectl status 
+  #   - name: "deploy mrtg"
+  #     run: make deploy-mrtg       
      
 
-  ubuntu-latest-nipap-job:
-    name: "nipap on ubuntu-latest"
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: "os fingerprinting"
-      run: hostnamectl status       
-    - name: "deploy nipap"
-      run: make deploy-nipap      
+  # ubuntu-latest-nipap-job:
+  #   name: "nipap on ubuntu-latest"
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: "os fingerprinting"
+  #     run: hostnamectl status       
+  #   - name: "deploy nipap"
+  #     run: make deploy-nipap      
  
-  ubuntu-latest-ncpa-job:
-    name: "ncpa on ubuntu-latest"
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: "os fingerprinting"
-      run: hostnamectl status       
-    - name: "deploy ncpa"
-      run: make deploy-ncpa     
+  # ubuntu-latest-ncpa-job:
+  #   name: "ncpa on ubuntu-latest"
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: "os fingerprinting"
+  #     run: hostnamectl status       
+  #   - name: "deploy ncpa"
+  #     run: make deploy-ncpa     

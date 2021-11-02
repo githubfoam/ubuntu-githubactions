@@ -1,0 +1,1 @@
+*/5 * * * *  root  sh /tmp/run_mrtg.sh >> /var/log/run_mrtg_cron.log 2>&1

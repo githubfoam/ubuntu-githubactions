@@ -1,6 +1,9 @@
 IMAGE := alpine/fio
 APP:="scripts/archlinux-req.sh"
 
+deploy-radamsa:
+	bash scripts/deploy-radamsa.sh
+
 deploy-tshark:
 	bash scripts/deploy-tshark.sh
 
