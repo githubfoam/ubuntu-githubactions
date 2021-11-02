@@ -51,7 +51,7 @@ jobs:
     - name: "os fingerprinting"
       run: hostnamectl status    
     - name: "deploy radamsa"
-      run: make deploy-radamsa
+      run: sudo make deploy-radamsa
 
   # ubuntu-latest-tshark-job:
   #   name: "tshark on ubuntu-latest"
