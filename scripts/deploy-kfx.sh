@@ -65,7 +65,7 @@ systemctl enable xen-init-dom0.service
 systemctl enable xenconsoled.service
 echo "GRUB_CMDLINE_XEN_DEFAULT=\"hap_1gb=false hap_2mb=false dom0_mem=6096M hpet=legacy-replacement iommu=no-sharept\"" >> /etc/default/grub
 update-grub
-reboot
+# reboot
 
 # Case study: Xen Project Hypervisor (Section IX)
 # https://github.com/spectector/spectector-benchmarks
