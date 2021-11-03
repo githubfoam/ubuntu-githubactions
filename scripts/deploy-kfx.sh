@@ -54,17 +54,17 @@ echo CONFIG_MEM_SHARING=y >> xen/.config
 make -C xen olddefconfig
 make -j4 dist-xen
 make -j4 dist-tools
-su -
-make -j4 install-xen
-make -j4 install-tools
-echo "/usr/local/lib" > /etc/ld.so.conf.d/xen.conf
-ldconfig
-echo "none /proc/xen xenfs defaults,nofail 0 0" >> /etc/fstab
-systemctl enable xen-qemu-dom0-disk-backend.service
-systemctl enable xen-init-dom0.service
-systemctl enable xenconsoled.service
-echo "GRUB_CMDLINE_XEN_DEFAULT=\"hap_1gb=false hap_2mb=false dom0_mem=6096M hpet=legacy-replacement iommu=no-sharept\"" >> /etc/default/grub
-update-grub
+# su -
+# make -j4 install-xen
+# make -j4 install-tools
+# echo "/usr/local/lib" > /etc/ld.so.conf.d/xen.conf
+# ldconfig
+# echo "none /proc/xen xenfs defaults,nofail 0 0" >> /etc/fstab
+# systemctl enable xen-qemu-dom0-disk-backend.service
+# systemctl enable xen-init-dom0.service
+# systemctl enable xenconsoled.service
+# echo "GRUB_CMDLINE_XEN_DEFAULT=\"hap_1gb=false hap_2mb=false dom0_mem=6096M hpet=legacy-replacement iommu=no-sharept\"" >> /etc/default/grub
+# update-grub
 # reboot
 
 # Case study: Xen Project Hypervisor (Section IX)
