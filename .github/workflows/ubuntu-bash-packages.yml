@@ -43,35 +43,6 @@ jobs:
   #   - name: "DFIR osquery list"
   #     run: sh scripts/dfir_osquery.sh        
 
-  ubuntu-latest-radamsa-job:
-    name: "radamsa on ubuntu-latest"
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: "os fingerprinting"
-      run: hostnamectl status    
-    - name: "deploy radamsa"
-      run: sudo make deploy-radamsa
-
-  ubuntu-latest-kafl-job:
-    name: "kafl on ubuntu-latest"
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: "os fingerprinting"
-      run: hostnamectl status    
-    - name: "deploy kafl"
-      run: sudo make deploy-kafl
-
-  ubuntu-latest-kfx-job:
-    name: "kfx on ubuntu-latest"
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: "os fingerprinting"
-      run: hostnamectl status    
-    - name: "deploy kfx"
-      run: sudo make deploy-kfx
 
   # ubuntu-latest-tshark-job:
   #   name: "tshark on ubuntu-latest"
@@ -83,15 +54,15 @@ jobs:
   #   - name: "deploy tshark"
   #     run: make deploy-tshark
 
-  # ubuntu-latest-snmpv3-job:
-  #   name: "snmpv3 on ubuntu-latest"
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: "os fingerprinting"
-  #     run: hostnamectl status    
-  #   - name: "deploy snmp v3"
-  #     run: make deploy-snmpv3
+  ubuntu-latest-snmpv3-job:
+    name: "snmpv3 on ubuntu-latest"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status    
+    - name: "deploy snmp v3"
+      run: make deploy-snmpv3
 
   # ubuntu-latest-mrtg-job:
   #   name: "mrtg on ubuntu-latest"
