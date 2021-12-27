@@ -23,9 +23,17 @@ jobs:
       run: |
         sudo apt-get install libopenscap8 wget  -yq
         # download the necessary OVAL definitions
-        wget https://people.canonical.com/~ubuntu-security/oval/com.ubuntu.xenial.cve.oval.xml
+        if wget --spider https://people.canonical.com/~ubuntu-security/oval/com.ubuntu.bionic.cve.oval.xml 2>/dev/null; then
+          echo "OVAL file exists"
+        else
+          echo "OVAL file does not exist"
+        fi        
+        wget https://people.canonical.com/~ubuntu-security/oval/com.ubuntu.bionic.cve.oval.xml
         # Run the audit 
-        oscap oval eval --results /tmp/oscap_results.xml --report /tmp/oscap_report.html com.ubuntu.xenial.cve.oval.xml
+        # https://wiki.ubuntu.com/Releases
+        oscap oval eval --results /tmp/bionic_oscap_results.xml --report /tmp/oscap_report.html com.ubuntu.bionic.cve.oval.xml
+
+
 
   # ubuntu-latest-job:
   #   name: "ansible on ubuntu-latest"
