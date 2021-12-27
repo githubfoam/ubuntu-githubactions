@@ -21,7 +21,7 @@ jobs:
     #   run: sh scripts/dfir_osquery.sh   
     - name: "Ubuntu OpenSCAP"
       run: |
-        apt-get install libopenscap8 wget  -yq
+        sudo apt-get install libopenscap8 wget  -yq
         # download the necessary OVAL definitions
         wget https://people.canonical.com/~ubuntu-security/oval/com.ubuntu.xenial.cve.oval.xml
         # Run the audit 
