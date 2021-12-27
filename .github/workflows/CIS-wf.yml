@@ -23,6 +23,7 @@ jobs:
       run: |
         # dpkg -l | grep  libopenscap
         apt-cache madison usg-common
+        apt-get install usg-common -yq
         
 
   # ubuntu-latest-job:
