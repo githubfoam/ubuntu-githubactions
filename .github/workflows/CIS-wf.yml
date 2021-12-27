@@ -9,8 +9,8 @@ jobs:
 
 # https://ubuntu.com/security/certifications/docs/cis-installation
   ubuntu-1804-job:
-    name: "CIS on ubuntu-18.04"
-    runs-on: ubuntu-18.04
+    name: "CIS Ubuntu Linux 20.04 LTS Benchmark v1.1.0 - 03-31-2021"
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"
@@ -19,12 +19,12 @@ jobs:
     #   run: sudo sh scripts/install_osquery.sh      
     # - name: "DFIR osquery list"
     #   run: sh scripts/dfir_osquery.sh   
-    - name: "Ubuntu CIS Benchmark tooling"
+    - name: "1.1 Filesystem Configuration - 1.1.1 Disable unused filesystems"
       run: |
-        # dpkg -l | grep  libopenscap
-        apt-cache madison usg-common
-        sudo apt-get update -yq
-        sudo apt-get install usg-common -yq
+        # 1.1.1.1 Ensure mounting of cramfs filesystems is disabled (Automated)
+        # Removing support for unneeded filesystem types reduces the local attack surface of the
+        # server. If this filesystem type is not needed, disable it.
+        modprobe -n -v cramfs | grep -E '(cramfs|install)'
         
 
   # ubuntu-latest-job:
