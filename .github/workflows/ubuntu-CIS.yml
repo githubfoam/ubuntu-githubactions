@@ -19,9 +19,10 @@ jobs:
     #   run: sudo sh scripts/install_osquery.sh      
     # - name: "DFIR osquery list"
     #   run: sh scripts/dfir_osquery.sh   
-    - name: "os fingerprinting"
+    - name: "Ubuntu CIS Benchmark tooling"
       run: |
-        dpkg -l | grep  libopenscap
+        # dpkg -l | grep  libopenscap
+        apt-cache madison usg-common
         
 
   # ubuntu-latest-job:
