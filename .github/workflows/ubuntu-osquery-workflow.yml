@@ -10,17 +10,17 @@ on:
 
 jobs:
 
-  ubuntu-1604-job:
-    name: "osquery on ubuntu-16.04"
-    runs-on: ubuntu-16.04
-    steps:
-    - uses: actions/checkout@v2
-    - name: "os fingerprinting"
-      run: hostnamectl status  
-    - name: "install osquery"
-      run: sudo sh scripts/install_osquery.sh      
-    - name: "DFIR osquery list"
-      run: sh scripts/dfir_osquery.sh   
+  # ubuntu-1604-job:
+  #   name: "osquery on ubuntu-16.04"
+  #   runs-on: ubuntu-16.04
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: "os fingerprinting"
+  #     run: hostnamectl status  
+  #   - name: "install osquery"
+  #     run: sudo sh scripts/install_osquery.sh      
+  #   - name: "DFIR osquery list"
+  #     run: sh scripts/dfir_osquery.sh   
 
   ubuntu-1804-job:
     name: "osquery onubuntu-18.04"
