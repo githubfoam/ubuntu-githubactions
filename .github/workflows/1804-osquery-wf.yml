@@ -1,0 +1,25 @@
+name: "ubuntu 18.04  osquery CI workflow"
+
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+      - cron:  '0 0 1 * *' ##execution of a task in the first minute of the month
+
+
+jobs:
+
+  
+
+  ubuntu-1804-job:
+    name: "osquery onubuntu-18.04"
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status  
+    - name: "install osquery"
+      run: sudo sh scripts/install_osquery.sh      
+    - name: "DFIR osquery list"
+      run: sh scripts/dfir_osquery.sh   
