@@ -1,7 +1,10 @@
 # ubuntu-githubactions
 [![ubuntu 18.04  osquery CI workflow](https://github.com/githubfoam/ubuntu-githubactions/actions/workflows/1804-osquery-wf.yml/badge.svg)](https://github.com/githubfoam/ubuntu-githubactions/actions/workflows/1804-osquery-wf.yml)  
 [![ubuntu 20.04 osquery CI workflow](https://github.com/githubfoam/ubuntu-githubactions/actions/workflows/2004-osquery-wf.yml/badge.svg)](https://github.com/githubfoam/ubuntu-githubactions/actions/workflows/2004-osquery-wf.yml)  
+[![ubuntu 22.04 osquery CI workflow](https://github.com/githubfoam/ubuntu-githubactions/actions/workflows/2204-osquery-wf.yml/badge.svg)](https://github.com/githubfoam/ubuntu-githubactions/actions/workflows/2204-osquery-wf.yml)  
 [![ubuntu latest osquery CI workflow](https://github.com/githubfoam/ubuntu-githubactions/actions/workflows/latest-osquery-wf.yml/badge.svg)](https://github.com/githubfoam/ubuntu-githubactions/actions/workflows/latest-osquery-wf.yml)  
+
+[![osquery matrix CI workflow](https://github.com/githubfoam/ubuntu-githubactions/actions/workflows/osquery-matrix-wf.yml/badge.svg)](https://github.com/githubfoam/ubuntu-githubactions/actions/workflows/osquery-matrix-wf.yml)
 ~~~~
 
 osquery> select * from yara ;
